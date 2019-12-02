@@ -1,0 +1,11 @@
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\obj\Debug\netcoreapp3.0\1.csprojAssemblyReference.cache
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\obj\Debug\netcoreapp3.0\1.AssemblyInfoInputs.cache
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\obj\Debug\netcoreapp3.0\1.AssemblyInfo.cs
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\bin\Debug\netcoreapp3.0\1.exe
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\bin\Debug\netcoreapp3.0\1.deps.json
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\bin\Debug\netcoreapp3.0\1.runtimeconfig.json
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\bin\Debug\netcoreapp3.0\1.runtimeconfig.dev.json
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\bin\Debug\netcoreapp3.0\1.dll
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\bin\Debug\netcoreapp3.0\1.pdb
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\obj\Debug\netcoreapp3.0\1.dll
+I:\OneDrive\OneDrive - Z\Documents\C#\AdventOfCode2019\1\obj\Debug\netcoreapp3.0\1.pdb
