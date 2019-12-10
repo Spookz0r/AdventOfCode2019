@@ -22,18 +22,17 @@ namespace _5
         }
         public static int Calculate(int[] numbers)
         {
+            var error = false;
             var startIndex = 0;
-            while(true)
+            while(error == false)
             {
                 
                 int opcode = numbers[startIndex];
-                // Console.WriteLine("Opcode:" + opcode);
                 if(opcode == 99) break;
                 int parameter_one = 0;
                 int parameter_two = 0;
                 int parameter_three = 0;
                 var pos = 0;
-
 
                 // Mode check
                 string opcode_string = opcode.ToString();
@@ -50,13 +49,12 @@ namespace _5
                     mode_second_parameter = (int)Char.GetNumericValue(opcode_string[opcode_string.Length - 4]);
                     mode_third_parameter  = (int)Char.GetNumericValue(opcode_string[opcode_string.Length - 5]);
                 } catch{}
-
                 try
                 {
                     parameter_one = GetValueFromMode(numbers, mode_first_parameter, startIndex+1);
                     parameter_two = GetValueFromMode(numbers, mode_second_parameter, startIndex+2);
                 } catch{}
-            
+
                 switch(opcode)
                 {
                     case 1:
@@ -83,17 +81,16 @@ namespace _5
                         if(output_value != 0)  // Indicates a fail, print out the 10 previous instructions
                         {
                             var newArray = numbers.Skip(startIndex-10).Take(10).ToArray();
-                            // Console.WriteLine("[{0}]", string.Join(", ", newArray));
                         }
                         startIndex += 2;
                         break;
                     case 5: // Jump if true: If the first paramter is non-zero, it sets the instructions pointer to the value
                             // from the second paramter. Otherwise it does nothing
-                        startIndex = parameter_one != 0 ? parameter_two : startIndex + 2;
+                        startIndex = parameter_one != 0 ? parameter_two : startIndex + 3 ;
                         break;
                     case 6: // Jump if false: If the first paramter is zero, it sets the instructions pointer to the value
                             // from the second paramter. Otherwise it does nothing
-                        startIndex = parameter_one == 0 ? parameter_two : startIndex + 2;
+                        startIndex = parameter_one == 0 ? parameter_two : startIndex + 3;
                         break;
                     case 7: // Less than: If the first paramter is less than the second parameter, it stores 1 in the
                             // position given by the third parameter. Otherwise it stores 0
@@ -108,12 +105,14 @@ namespace _5
                         startIndex +=4;
                         break;
                     default:
-                        startIndex++;
+                        Console.WriteLine("Something went wrong " + opcode);
+                        Console.WriteLine("Startindex: "  + startIndex + " opcode: " + opcode + "  [{0}]", string.Join(", ", numbers));
+                        error = true;
                         break;
                 }
-                Console.WriteLine("Startindex: "  + startIndex + " opcode: " + opcode + "  [{0}]", string.Join(", ", numbers));
+                // Console.WriteLine("Startindex: "  + startIndex + " opcode: " + opcode + "  [{0}]", string.Join(", ", numbers));
             }
-            Console.WriteLine("[{0}]", string.Join(", ", numbers));
+            // Console.WriteLine("[{0}]", string.Join(", ", numbers));
             return numbers[0];
         }
         static void Main(string[] args)
@@ -131,11 +130,11 @@ namespace _5
             // int result4 = Calculate(numbers4);
 
             // Part 1: Actual test
-            // string line = File.ReadLines("input.txt").First();
-            // var numbers = line.Split(',').Select(Int32.Parse).ToList();
-            // int[] array = new int[numbers.Count];
-            // numbers.CopyTo(array);
-            // int result5 = Calculate(array);
+            string line = File.ReadLines("input.txt").First();
+            var numbers = line.Split(',').Select(Int32.Parse).ToList();
+            int[] array = new int[numbers.Count];
+            numbers.CopyTo(array);
+            int result5 = Calculate(array);
 
             // More test
 
@@ -148,8 +147,8 @@ namespace _5
             // int[] array_4 = {3,3,1108,-1,8,3,4,3,99};  // IF input is 8 output is 1, 0 if not
             // int[] array_4 = {3,3,1107,-1,8,3,4,3,99};  // if input is less than 8 output is 1, 0 if not
             // int[] array_4 = {3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9}; // If
-            int[] array_4 = {3,3,1105,-1,9,1101,0,0,12,4,12,99,1}; // If
-            int result_test_1 = Calculate(array_4);
+            // int[] array_4 = {3,3,1105,-1,9,1101,0,0,12,4,12,99,1}; // If
+            // int result_test_1 = Calculate(array_4);
             // int[] array_5 = {3,3,1105,-1,9,1101,0,0,12,4,12,99,1};
             // result_test_1 = Calculate(array_5);
             // int[] array_6 = {3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31, 1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104,999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99};
