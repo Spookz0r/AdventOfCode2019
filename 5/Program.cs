@@ -111,8 +111,9 @@ namespace _5
                         startIndex++;
                         break;
                 }
+                Console.WriteLine("Startindex: "  + startIndex + " opcode: " + opcode + "  [{0}]", string.Join(", ", numbers));
             }
-            // Console.WriteLine("[{0}]", string.Join(", ", numbers));
+            Console.WriteLine("[{0}]", string.Join(", ", numbers));
             return numbers[0];
         }
         static void Main(string[] args)
@@ -130,11 +131,11 @@ namespace _5
             // int result4 = Calculate(numbers4);
 
             // Part 1: Actual test
-            string line = File.ReadLines("input.txt").First();
-            var numbers = line.Split(',').Select(Int32.Parse).ToList();
-            int[] array = new int[numbers.Count];
-            numbers.CopyTo(array);
-            int result5 = Calculate(array);
+            // string line = File.ReadLines("input.txt").First();
+            // var numbers = line.Split(',').Select(Int32.Parse).ToList();
+            // int[] array = new int[numbers.Count];
+            // numbers.CopyTo(array);
+            // int result5 = Calculate(array);
 
             // More test
 
@@ -147,8 +148,8 @@ namespace _5
             // int[] array_4 = {3,3,1108,-1,8,3,4,3,99};  // IF input is 8 output is 1, 0 if not
             // int[] array_4 = {3,3,1107,-1,8,3,4,3,99};  // if input is less than 8 output is 1, 0 if not
             // int[] array_4 = {3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9}; // If
-            // int[] array_4 = {3,3,1105,-1,9,1101,0,0,12,4,12,99,1}; // If
-            // int result_test_1 = Calculate(array_4);
+            int[] array_4 = {3,3,1105,-1,9,1101,0,0,12,4,12,99,1}; // If
+            int result_test_1 = Calculate(array_4);
             // int[] array_5 = {3,3,1105,-1,9,1101,0,0,12,4,12,99,1};
             // result_test_1 = Calculate(array_5);
             // int[] array_6 = {3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31, 1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104,999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99};
